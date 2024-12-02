@@ -37,9 +37,18 @@ $breakpoints: (
     }
 }
 
+@mixin m-mainTitle() {
+    font-family: "shippori-mincho",
+        sans-serif;
+    font-weight: 500; //regularは400,boldは700
+    font-style: normal;
+}
+
+
 @function f-rem($value) {
     @return ($value/16)+rem;
 }
+
 
 $color-background: #FFFAEA;
 $color-text: #281E00;
@@ -53,7 +62,9 @@ body {
     color: $color-text;
     font-size: f-rem(14
     );
-font-family: serif;
+font-family: "tk-takumi-shokei-font", sans-serif;
+font-weight: 200; //boldは400
+font-style: normal;
 line-height: 3;
 }
 
@@ -70,40 +81,88 @@ img {
 .fix {
     @include m-flex(center);
     padding: 10px;
+    position: fixed;
+    width: 100%;
+    background-color: $color-background;
+
+    @include m-query(desktop) {
+        flex-direction: column;
+        width: (100em/14);
+        height: 100vh;
+        padding: 30px 10px;
+    }
 
     &__logo {
         width: (40em/14);
+
+        @include m-query(desktop) {
+            width: (80em/14);
+        }
     }
 
     &__right {
         @include m-flex(center);
+
+        @include m-query(desktop) {
+            display: block;
+            margin-bottom: -20px
+        }
     }
 
     &__shortcut {
         @include m-flex(flex-end);
         margin-right: 20px;
+
+        @include m-query(desktop) {
+            display: block;
+            margin-right: 0;
+        }
     }
 
     &__shopInfo {
         margin-right: 15px;
+
+        @include m-query(desktop) {
+            margin-right: 0;
+        }
     }
 
     &__shortcutItem {
-        @include m-flex(center);
+        @include m-flex(center, flex-end);
         flex-direction: row-reverse;
         margin-bottom: 15px;
 
         &:last-child {
             margin-bottom: 0;
         }
+
+        @include m-query(desktop) {
+            display: block;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-bottom: 20px;
+            }
+        }
     }
 
     &__shortcutText {
+        padding-left: (3em/12);
         font-size: f-rem(12);
         line-height: 1;
 
         &--insta {
             display: none;
+        }
+
+        @include m-query(desktop) {
+            padding-left: 0;
+            padding-bottom: 10px;
+            text-align: center;
+
+            &--insta {
+                display: block;
+            }
         }
     }
 
@@ -121,6 +180,15 @@ img {
                 width: (20em/14);
             }
         }
+
+        @include m-query(desktop) {
+            height: auto;
+            text-align: center;
+
+            img {
+                width: (40em/14);
+            }
+        }
     }
 
     &__menu {
@@ -133,6 +201,23 @@ img {
 
             &:last-child {
                 padding-bottom: 0;
+            }
+        }
+
+        &--desktop {
+            display: none;
+        }
+
+        @include m-query(desktop) {
+            display: none;
+            width: 80px;
+
+            img {
+                padding-bottom: 30px;
+            }
+
+            &--desktop {
+                display: flex;
             }
         }
     }

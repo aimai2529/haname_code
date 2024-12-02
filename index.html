@@ -7,11 +7,36 @@
     <title>花芽ーハナメー</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
     <link rel="stylesheet" href="./css/style.min.css">
+    <script>//adobeウェブフォント　TK-takumi
+        (function (d) {
+            var config = {
+                kitId: 'ubp1rzx',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
+    <script>//adobeウェブフォント　しっぽり明朝
+        (function (d) {
+            var config = {
+                kitId: 'ubp1rzx',
+                scriptTimeout: 3000,
+                async: true
+            },
+                h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+        })(document);
+    </script>
 </head>
 
 <body>
     <header class="header">
         <nav class="header__fix fix">
+            <button class="fix__menu fix__menu--desktop">
+                <img src="./images/Line 3.png" alt="" class="fix__menuTop">
+                <img src="./images/Line 3.png" alt="" class="fix__menuCenter">
+                <img src="./images/Line 3.png" alt="" class="fix__menuBottom">
+            </button>
             <a href="./index.html">
                 <div class="fix__logo">
                     <img src="./images/haname_logo.svg" alt="花芽">
@@ -20,34 +45,32 @@
             <div class="fix__right">
                 <div class="fix__shortcut">
                     <div class="fix__shopInfo">
-                        <div class="fix__shortcutItem">
+                        <a href="#" target="_blank" class="fix__shortcutItem">
                             <p class="fix__shortcutText">
                                 営業時間
                             </p>
                             <div class="fix__shortcutImg">
                                 <img src="./images/schedule_24dp_000000.png" alt="">
                             </div>
-                        </div>
-                        <div class="fix__shortcutItem">
+                        </a>
+                        <a href="#" target="_blank" class="fix__shortcutItem">
                             <p class="fix__shortcutText">
                                 アクセス
                             </p>
                             <div class="fix__shortcutImg">
                                 <img src="./images/place_24dp_000000.png" alt="">
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="fix__shortcutItem">
+                    <a href="#" target="_blank" class="fix__shortcutItem">
                         <p class="fix__shortcutText fix__shortcutText--insta">
                             花芽公式<br>
                             インスタグラム
                         </p>
-                        <a href="#">
-                            <div class="fix__shortcutImg fix__shortcutImg--insta">
-                                <img src="./images/Instagram_Glyph_Gradient.svg" alt="">
-                            </div>
-                        </a>
-                    </div>
+                        <div class="fix__shortcutImg fix__shortcutImg--insta">
+                            <img src="./images/Instagram_Glyph_Gradient.svg" alt="">
+                        </div>
+                    </a>
                 </div>
                 <button class="fix__menu">
                     <img src="./images/Line 3.png" alt="" class="fix__menuTop">

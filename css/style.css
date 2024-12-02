@@ -2,7 +2,9 @@ body {
   background-color: #FFFAEA;
   color: #281E00;
   font-size: 0.875rem;
-  font-family: serif;
+  font-family: "tk-takumi-shokei-font", sans-serif;
+  font-weight: 200;
+  font-style: normal;
   line-height: 3;
 }
 
@@ -18,15 +20,37 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  position: fixed;
+  width: 100%;
+  background-color: #FFFAEA;
+}
+@media screen and (min-width: 800px) {
+  .fix {
+    flex-direction: column;
+    width: 7.1428571429em;
+    height: 100vh;
+    padding: 30px 10px;
+  }
 }
 .fix__logo {
   width: 2.8571428571em;
+}
+@media screen and (min-width: 800px) {
+  .fix__logo {
+    width: 5.7142857143em;
+  }
 }
 .fix__right {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 800px) {
+  .fix__right {
+    display: block;
+    margin-bottom: -20px;
+  }
 }
 .fix__shortcut {
   display: flex;
@@ -35,13 +59,24 @@ img {
   align-items: flex-end;
   margin-right: 20px;
 }
+@media screen and (min-width: 800px) {
+  .fix__shortcut {
+    display: block;
+    margin-right: 0;
+  }
+}
 .fix__shopInfo {
   margin-right: 15px;
+}
+@media screen and (min-width: 800px) {
+  .fix__shopInfo {
+    margin-right: 0;
+  }
 }
 .fix__shortcutItem {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-direction: row-reverse;
   margin-bottom: 15px;
@@ -49,12 +84,32 @@ img {
 .fix__shortcutItem:last-child {
   margin-bottom: 0;
 }
+@media screen and (min-width: 800px) {
+  .fix__shortcutItem {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .fix__shortcutItem:last-child {
+    margin-bottom: 20px;
+  }
+}
 .fix__shortcutText {
+  padding-left: 0.25em;
   font-size: 0.75rem;
   line-height: 1;
 }
 .fix__shortcutText--insta {
   display: none;
+}
+@media screen and (min-width: 800px) {
+  .fix__shortcutText {
+    padding-left: 0;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  .fix__shortcutText--insta {
+    display: block;
+  }
 }
 .fix__shortcutImg {
   height: 1.0714285714em;
@@ -67,6 +122,15 @@ img {
 }
 .fix__shortcutImg--insta img {
   width: 1.4285714286em;
+}
+@media screen and (min-width: 800px) {
+  .fix__shortcutImg {
+    height: auto;
+    text-align: center;
+  }
+  .fix__shortcutImg img {
+    width: 2.8571428571em;
+  }
 }
 .fix__menu {
   display: flex;
@@ -81,5 +145,20 @@ img {
 }
 .fix__menu img:last-child {
   padding-bottom: 0;
+}
+.fix__menu--desktop {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  .fix__menu {
+    display: none;
+    width: 80px;
+  }
+  .fix__menu img {
+    padding-bottom: 30px;
+  }
+  .fix__menu--desktop {
+    display: flex;
+  }
 }
 /*# sourceMappingURL=style.css.map */
