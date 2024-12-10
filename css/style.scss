@@ -19,14 +19,12 @@ $breakpoints: (
     }
 }
 
-@mixin m-inner() {
-    width: 90%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+@mixin m-tinner() {
+    max-width: 1200px;
+    padding-left: 0;
 }
 
-@mixin m-sinner() {
+@mixin m-inner() {
     width: 90%;
     max-width: 900px;
     margin-left: auto;
@@ -37,11 +35,18 @@ $breakpoints: (
     }
 }
 
-@mixin m-mainTitle() {
-    font-family: "shippori-mincho",
-        sans-serif;
-    font-weight: 500; //regularは400,boldは700
-    font-style: normal;
+@mixin m-mainTitle($s: 36) {
+    font-size: f-rem($s
+    );
+font-family: "shippori-mincho",
+    sans-serif;
+font-weight: 500; //regularは400,boldは700
+font-style: normal;
+}
+
+@mixin m-vertical() {
+    writing-mode: vertical-rl;
+    -ms-writing-mode: bt-rl;
 }
 
 
@@ -60,12 +65,11 @@ $color-text: #281E00;
 body {
     background-color: $color-background;
     color: $color-text;
-    font-size: f-rem(14
-    );
-font-family: "tk-takumi-shokei-font", sans-serif;
-font-weight: 200; //boldは400
-font-style: normal;
-line-height: 3;
+    font-size: f-rem(14);
+    font-family: "tk-takumi-shokei-font", sans-serif;
+    font-weight: 200; //boldは400
+    font-style: normal;
+    line-height: 3;
 }
 
 img {
@@ -87,9 +91,18 @@ img {
 
     @include m-query(desktop) {
         flex-direction: column;
+        left: 0;
         width: (100em/14);
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        min-height: 600px;
         padding: 30px 10px;
+        transition: .5s ease-out;
+
+        &.disapper {
+            left: -(100em/14);
+            opacity: 0;
+        }
     }
 
     &__logo {
@@ -223,11 +236,73 @@ img {
     }
 }
 
+.header {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 800px;
+
+    &__inner {
+        @include m-inner();
+        padding-top: 300px;
+        text-align: center;
+
+        &--noside {
+            @include m-tinner();
+            padding-top: 120px;
+
+            @include m-query(desktop) {
+                @include m-flex(flex-start);
+            }
+        }
+
+    }
+
+    &__nav {
+        display: none;
+
+        @include m-query(desktop) {
+            display: block;
+            padding-top: calc(var(--vh, 1vh) * 40);
+        }
+    }
+
+    &__logo {
+
+        img {
+            width: (160em/14);
+        }
+    }
+
+    &__motto {
+        @include m-vertical();
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 120px;
+        font-family: "shippori-mincho",
+            sans-serif;
+        font-size: f-rem(32);
+        line-height: 2;
+        text-align: right;
+
+        @include m-query(desktop) {
+            margin-bottom: 0;
+            font-size: f-rem(36);
+        }
+    }
+
+    &__title {
+        @include m-vertical();
+        margin-left: auto;
+        margin-right: auto;
+        @include m-mainTitle();
+    }
+}
+
 .footer {
     padding: 100px 0;
 
     &__inner {
-        @include m-sinner();
+        @include m-inner();
     }
 
     &__content {
@@ -286,31 +361,55 @@ img {
 
 
 // ----------index-----------
-.header {
-    height: 100vh;
+
+
+.unit {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+.news {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+.calendar {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+.map {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+.contact {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+
+// ----------contact----------
+
+
+.info {
+    margin-bottom: 120px;
+    text-align: center;
+
+    @include m-query(desktop) {
+        margin-bottom: 300px;
+    }
 
     &__inner {
         @include m-inner();
-        padding-top: 100px;
-        text-align: center;
-
-        @include m-query(desktop) {
-            @include m-flex(flex-start);
-        }
     }
 
-    &__nav {
-        display: none;
-
-        @include m-query(desktop) {
-            display: block;
-        }
-    }
-
-    &__logo {
-
-        img {
-            width: (160em/14);
-        }
+    &__number {
+        font-size: f-rem(36);
     }
 }
