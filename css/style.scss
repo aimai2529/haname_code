@@ -44,12 +44,6 @@ font-weight: 500; //regularは400,boldは700
 font-style: normal;
 }
 
-@mixin m-vertical() {
-    writing-mode: vertical-rl;
-    -ms-writing-mode: bt-rl;
-}
-
-
 @function f-rem($value) {
     @return ($value/16)+rem;
 }
@@ -57,6 +51,10 @@ font-style: normal;
 
 $color-background: #FFFAEA;
 $color-text: #281E00;
+$color-main: #F2C635;
+$color-accent: #E83342;
+$color-subBlue: #143959;
+$color-subGreen: #D3D930;
 
 
 // ----------base---------
@@ -78,6 +76,20 @@ img {
     vertical-align: top;
 }
 
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: $color-subBlue auto 1px;
+}
+
+// フォーカスインジゲーターを表示させる
+
+::selection {
+    background-color: $color-subGreen;
+}
+
 
 // ----------common----------
 
@@ -86,18 +98,22 @@ img {
     @include m-flex(center);
     padding: 10px;
     position: fixed;
+    top: 0;
+    z-index: 999;
     width: 100%;
     background-color: $color-background;
 
     @include m-query(desktop) {
         flex-direction: column;
+        top: 0;
         left: 0;
         width: (100em/14);
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
         min-height: 600px;
         padding: 30px 10px;
-        transition: .5s ease-out;
+        transition: .5s ease-out left,
+            .5s ease-out opacity;
 
         &.disapper {
             left: -(100em/14);
@@ -254,7 +270,6 @@ img {
                 @include m-flex(flex-start);
             }
         }
-
     }
 
     &__nav {
@@ -274,7 +289,7 @@ img {
     }
 
     &__motto {
-        @include m-vertical();
+        writing-mode: vertical-rl;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 120px;
@@ -291,7 +306,8 @@ img {
     }
 
     &__title {
-        @include m-vertical();
+        writing-mode: vertical-rl;
+        -ms-writing-mode: bt-rl;
         margin-left: auto;
         margin-right: auto;
         @include m-mainTitle();
@@ -300,6 +316,11 @@ img {
 
 .footer {
     padding: 100px 0;
+    margin-top: 120px;
+
+    @include m-query(desktop) {
+        margin-top: 300px
+    }
 
     &__inner {
         @include m-inner();
@@ -359,6 +380,17 @@ img {
     }
 }
 
+.block {
+    &__inner {
+        @include m-inner();
+    }
+
+    &__title {
+        @include m-mainTitle();
+        writing-mode: vertical-rl;
+    }
+}
+
 
 // ----------index-----------
 
@@ -394,16 +426,236 @@ img {
 }
 
 
+// -----------product-----------
+
+
+.dayItems {
+    &__inner {
+        @include m-inner();
+    }
+}
+
+
+// ----------news-----------
+
+
+.article {
+    &__inner {
+        @include m-inner();
+    }
+
+    &__item {
+        margin-bottom: 60px;
+        padding-bottom: 30px;
+        border-bottom: $color-text 1px dotted;
+
+        @include m-query(desktop) {
+            @include m-flex(center);
+        }
+    }
+
+    &__image {
+        margin: 0 auto 75px;
+        max-width: 250px;
+
+        @include m-query(desktop) {
+            margin: 0;
+            width: (150/900)*100%;
+        }
+
+        img {
+            clip-path: url(#clip);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        @include m-query(desktop) {
+            width: (675/900)*100%;
+        }
+    }
+
+    &__title {
+        margin-bottom: 10px;
+        font-size: f-rem(24);
+        line-height: 1;
+    }
+
+    &__date {
+        margin-bottom: 30px;
+        line-height: 1;
+    }
+
+    &__text {
+        line-height: 2;
+    }
+
+    &__pagenation {
+        text-align: center;
+        line-height: 1;
+
+        :last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__beforePage {
+        width: (30em/14);
+        height: (30em/14);
+        margin-right: (30em/14);
+        display: none; //1ページ目なら表示しないにしたい
+    }
+
+    &__page {
+        width: (30em/14);
+        height: (30em/14);
+        margin-right: (30em/14);
+
+        &--current {
+            background: url(../images/flower.svg) no-repeat center center;
+            color: $color-background;
+        }
+    }
+
+    &__nextPage {
+        width: (30em/14);
+        height: (30em/14);
+        margin-right: (30em/14);
+    }
+}
+
+
+// ---------news_article----------
+
+
+.single {
+    margin-top: 200px;
+
+    &__inner {
+        @include m-inner();
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        font-size: f-rem(36);
+    }
+
+    &__date {
+        margin-bottom: 15px;
+        font-size: f-rem(12);
+    }
+
+    &__link {
+        color: $color-accent;
+        text-decoration: underline $color-accent;
+    }
+
+    &__text {
+        margin: 120px 0 60px;
+        line-height: 2;
+    }
+
+    &__images {
+        text-align: center;
+        margin-bottom: 60px;
+
+        @include m-query(desktop) {
+            @include m-flex();
+        }
+
+        img {
+            margin-bottom: 60px;
+            clip-path: url(#clip);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            width: 100%;
+            max-width: 400px;
+
+            @include m-query(desktop) {
+                width: 30%;
+            }
+        }
+    }
+
+    &__back {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        font-size: f-rem(16);
+    }
+}
+
+
+// ----------store-----------
+
+
+.shop {
+    @include m-query(desktop) {
+        margin-bottom: 300px;
+    }
+
+    &__inner {
+        @include m-inner();
+    }
+
+    &__address {
+        margin-bottom: 210px;
+    }
+
+
+    &__text {
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    &__card {
+        margin-bottom: 120px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &:nth-child(odd) {
+            @include m-query(desktop) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        @include m-query(desktop) {
+            @include m-flex(flex-start);
+        }
+    }
+
+    &__cardContent {
+        margin-bottom: 60px;
+
+        @include m-query(desktop) {
+            width: 45%; //デザインから変更、比率
+            margin-bottom: 0;
+        }
+    }
+
+    &__cardTitle {
+        margin-bottom: 30px;
+        font-size: f-rem(24);
+    }
+
+    &__cardImg {
+        @include m-query(desktop) {
+            width: 45%;
+        }
+    }
+}
+
+
 // ----------contact----------
 
 
 .info {
-    margin-bottom: 120px;
     text-align: center;
-
-    @include m-query(desktop) {
-        margin-bottom: 300px;
-    }
 
     &__inner {
         @include m-inner();
