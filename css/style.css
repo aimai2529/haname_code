@@ -237,6 +237,7 @@ textarea:focus {
 }
 .header__motto {
   writing-mode: vertical-rl;
+  white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 120px;
@@ -253,6 +254,7 @@ textarea:focus {
 }
 .header__title {
   writing-mode: vertical-rl;
+  white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
   font-size: 2.25rem;
@@ -360,6 +362,7 @@ textarea:focus {
   font-style: normal;
   line-height: 1;
   writing-mode: vertical-rl;
+  white-space: nowrap;
   margin: 0 auto 90px;
 }
 @media screen and (min-width: 800px) {
@@ -492,6 +495,7 @@ textarea:focus {
   font-style: normal;
   line-height: 1;
   writing-mode: vertical-rl;
+  white-space: nowrap;
   height: 9.7222222222em;
   margin: 0 auto 90px;
   padding: 0 0.4722222222em;
@@ -752,6 +756,7 @@ textarea:focus {
   font-style: normal;
   line-height: 1;
   writing-mode: vertical-rl;
+  white-space: nowrap;
   margin: 0 auto 90px;
 }
 .detailed__text {
@@ -852,6 +857,7 @@ textarea:focus {
   font-style: normal;
   line-height: 1;
   writing-mode: vertical-rl;
+  white-space: nowrap;
 }
 .introduce__name {
   font-size: 2.25rem;

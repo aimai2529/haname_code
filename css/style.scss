@@ -309,6 +309,7 @@ textarea:focus {
 
     &__motto {
         writing-mode: vertical-rl;
+        white-space: nowrap;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 120px;
@@ -326,6 +327,7 @@ textarea:focus {
 
     &__title {
         writing-mode: vertical-rl;
+        white-space: nowrap;
         margin-left: auto;
         margin-right: auto;
         @include m-mainTitle();
@@ -410,6 +412,7 @@ textarea:focus {
     &__title {
         @include m-mainTitle();
         writing-mode: vertical-rl;
+        white-space: nowrap;
         margin: 0 auto 90px;
 
         @include m-query(desktop) {
@@ -529,6 +532,7 @@ textarea:focus {
     &__title {
         @include m-mainTitle();
         writing-mode: vertical-rl;
+        white-space: nowrap;
         height: (350em/36);
         margin: 0 auto 90px;
         padding: 0 (17em/36);
@@ -739,6 +743,7 @@ textarea:focus {
     &__title {
         @include m-mainTitle();
         writing-mode: vertical-rl;
+        white-space: nowrap;
         margin: 0 auto 90px;
     }
 
@@ -821,6 +826,7 @@ textarea:focus {
     &__title {
         @include m-mainTitle();
         writing-mode: vertical-rl;
+        white-space: nowrap;
     }
 
     &__name {
