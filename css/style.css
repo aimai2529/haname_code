@@ -43,6 +43,12 @@ textarea:focus {
   width: 100%;
   min-width: 240px;
   background-color: #FFFAEA;
+  border-radius: 0 0 10px 10px;
+  transition: 0.5s ease-out top, 0.5s ease-out opacity;
+}
+.fix.disapper {
+  top: -7.1428571429em;
+  opacity: 0;
 }
 @media screen and (min-width: 800px) {
   .fix {
@@ -55,9 +61,11 @@ textarea:focus {
     height: calc(var(--vh, 1vh) * 100);
     min-height: 600px;
     padding: 30px 10px;
+    border-radius: 0 20px 20px 0;
     transition: 0.5s ease-out left, 0.5s ease-out opacity;
   }
   .fix.disapper {
+    top: 0;
     left: -7.1428571429em;
     opacity: 0;
   }
@@ -192,6 +200,36 @@ textarea:focus {
   }
 }
 
+.inside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  padding: 5.5555555556em 10px 1.6666666667em;
+  background-color: #F2C635;
+  font-size: 1.125rem;
+  text-align: right;
+  transform: translateY(-100%);
+  transition: 0.8s;
+}
+.inside.open {
+  transform: translateY(0);
+}
+@media screen and (min-width: 800px) {
+  .inside {
+    width: 40%;
+    padding: 30px 10px 30px 8.3333333333em;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    text-align: left;
+    transform: translate(-100%, 0);
+  }
+  .inside.open {
+    transform: translateX(0);
+  }
+}
+
 .header {
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
@@ -213,7 +251,7 @@ textarea:focus {
 .header__inner--noside {
   max-width: 1200px;
   padding-left: 0;
-  padding-top: 120px;
+  padding-top: calc(var(--vh, 1vh) * 15);
 }
 @media screen and (min-width: 800px) {
   .header__inner--noside {
@@ -221,6 +259,7 @@ textarea:focus {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
+    padding-top: 120px;
   }
 }
 .header__nav {
@@ -230,6 +269,7 @@ textarea:focus {
   .header__nav {
     display: block;
     padding-top: calc(var(--vh, 1vh) * 40);
+    text-align: left;
   }
 }
 .header__logo img {
@@ -240,7 +280,7 @@ textarea:focus {
   white-space: nowrap;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 120px;
+  margin-bottom: 90px;
   font-family: "shippori-mincho", sans-serif;
   font-size: 2rem;
   line-height: 2;

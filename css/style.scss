@@ -120,6 +120,14 @@ textarea:focus {
     width: 100%;
     min-width: 240px;
     background-color: $color-background;
+    border-radius: 0 0 10px 10px;
+    transition: .5s ease-out top,
+        .5s ease-out opacity;
+
+    &.disapper {
+        top: -(100em/14);
+        opacity: 0;
+    }
 
     @include m-query(desktop) {
         flex-direction: column;
@@ -131,10 +139,12 @@ textarea:focus {
         height: calc(var(--vh, 1vh) * 100);
         min-height: 600px;
         padding: 30px 10px;
+        border-radius: 0 20px 20px 0;
         transition: .5s ease-out left,
             .5s ease-out opacity;
 
         &.disapper {
+            top: 0;
             left: -(100em/14);
             opacity: 0;
         }
@@ -271,6 +281,37 @@ textarea:focus {
     }
 }
 
+.inside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    padding: (100em/18) 10px (30em/18);
+    background-color: $color-main;
+    font-size: f-rem(18);
+    text-align: right;
+    transform: translateY(-100%);
+    transition: .8s;
+
+    &.open {
+        transform: translateY(0);
+    }
+
+    @include m-query(desktop) {
+        width: 40%;
+        padding: 30px 10px 30px (150em/18);
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        text-align: left;
+        transform: translate(-100%, 0);
+
+        &.open {
+            transform: translateX(0);
+        }
+    }
+}
+
 .header {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
@@ -283,10 +324,11 @@ textarea:focus {
 
         &--noside {
             @include m-tinner();
-            padding-top: 120px;
+            padding-top: calc(var(--vh, 1vh) * 15);
 
             @include m-query(desktop) {
                 @include m-flex(flex-start);
+                padding-top: 120px;
             }
         }
     }
@@ -297,6 +339,7 @@ textarea:focus {
         @include m-query(desktop) {
             display: block;
             padding-top: calc(var(--vh, 1vh) * 40);
+            text-align: left;
         }
     }
 
@@ -312,7 +355,7 @@ textarea:focus {
         white-space: nowrap;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 120px;
+        margin-bottom: 90px;
         font-family: "shippori-mincho",
             sans-serif;
         font-size: f-rem(32);
