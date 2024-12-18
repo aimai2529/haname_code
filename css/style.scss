@@ -31,18 +31,18 @@ $breakpoints: (
     margin-right: auto;
 
     @include m-query(desktop) {
-        padding-left: 100px
-    }
+        padding-left: (110em/14
+        );
+}
 }
 
 @mixin m-mainTitle($s: 36) {
-    font-size: f-rem($s
-    );
-font-family: "shippori-mincho",
-    sans-serif;
-font-weight: 500; //regularは400,boldは700
-font-style: normal;
-line-height: 1;
+    font-size: f-rem($s );
+    font-family: "shippori-mincho",
+        sans-serif;
+    font-weight: 500; //regularは400,boldは700
+    font-style: normal;
+    line-height: 1;
 }
 
 @mixin m-clip() {
@@ -133,7 +133,7 @@ textarea:focus {
         flex-direction: column;
         top: 0;
         left: 0;
-        width: (100em/14);
+        width: (110em/14);
         min-width: auto;
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
@@ -296,6 +296,10 @@ textarea:focus {
 
     &.open {
         transform: translateY(0);
+    }
+
+    &.resize {
+        transition: none;
     }
 
     @include m-query(desktop) {
@@ -1149,6 +1153,20 @@ textarea:focus {
         margin-bottom: 210px;
     }
 
+    &__map {
+        width: 100%;
+        position: relative;
+        padding-top: (3/4)*100%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
 
     &__text {
         margin-bottom: 60px;
@@ -1210,6 +1228,27 @@ textarea:focus {
     }
 
     &__number {
+        font-size: f-rem(36);
+    }
+}
+
+//     ###    ####       ###
+//    ####   ##  ##     ####
+//   ## ##   ## ###    ## ##
+//  ##  ##   ######   ##  ##
+//  #######  ### ##   #######
+//      ##   ##  ##       ##
+//      ##    ####        ##
+
+.notfound {
+    margin-top: (300em/14);
+
+    &__inner {
+        @include m-inner();
+        text-align: center;
+    }
+
+    &__text {
         font-size: f-rem(36);
     }
 }

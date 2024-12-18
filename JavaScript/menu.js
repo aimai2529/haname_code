@@ -6,3 +6,10 @@ for (let i = 0; i < 2; i++) {
         inside.classList.toggle('open');
     })
 }
+
+window.addEventListener('resize', () => {
+    inside.classList.add('resize');
+    setTimeout(() => {
+        inside.classList.remove('resize');
+    }, 300)
+})
