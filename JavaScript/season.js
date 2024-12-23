@@ -13,14 +13,19 @@ client.get({ endpoint: 'products' }).then((res) => {
     for (let i = 0; i < res.totalCount; i++) {
         list.insertAdjacentHTML('afterbegin', createArticle);
     }
-    const seasonImg = document.querySelectorAll('season .block__image'),
+    const seasonImg = document.querySelectorAll('.season .block__image img'),
         seasonName = document.querySelectorAll('.season .block__name'),
         seasonText = document.querySelectorAll('.season .block__text'),
         seasonPrice = document.querySelectorAll('.season .block__price'),
         seasonEatby = document.querySelectorAll('.season .block__eatBy'),
         seasonPeriod = document.querySelectorAll('.season .block__period');
     for (let i = 0; i < res.totalCount; i++) {
-        seasonImg[i].setAttribute('src', res.contents[0].image.url);
+        console.log(seasonImg[i]);
+        seasonImg[i].src = res.contents[i].image.url;
         seasonName[i].innerHTML = res.contents[i].name;
+        seasonText[i].innerHTML = res.contents[i].text;
+        seasonPrice[i].innerHTML = `${res.contents[i].price}円(税込)`;
+        seasonEatby[i].innerHTML = `消費期限　${res.contents[i].eatBy}日`;
+        seasonPeriod[i].innerHTML = `販売期間　${res.contents[i].period}`;
     }
 })

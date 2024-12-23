@@ -8,6 +8,40 @@
 </head>
 
 <body>
+    <section class="calendar">
+        <div class="calendar__inner">
+            <h2 class="calendar__title">
+                営業日カレンダー
+            </h2>
+            <div class="calendar__image">
+                <img src="./images/calendar.png" alt="" width="1600" height="1068" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section class="dayItems">
+        <div class="dayItems__inner">
+            <h2 class="dayItems__title">
+                本日の品揃え
+            </h2>
+            <div class="dayItems__list">
+                <dl>
+                </dl>
+                <small class="dayItems__attention">
+                    ※実際に品切れてから品切れ情報の反映までには時間差があります。目安としてお考えください。
+                </small>
+            </div>
+            <p class="dayItems__allergie">
+                アレルギー情報は<a href="#">こちら</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="standard">
+        <div class="block__list">
+            <p>ああああああ</p>
+        </div>
+    </div>
 
     <div class="season">
         <div class="block__list">
@@ -16,6 +50,8 @@
     </div>
     <script src="https://unpkg.com/microcms-js-sdk@latest/dist/umd/microcms-js-sdk.js"></script>
     <script src="./JavaScript/season.js"></script>
+    <script src="./JavaScript/dayitem.js"></script>
+    <!-- <script src="./JavaScript/calendar.js"></script> -->
 </body>
 
 </html>

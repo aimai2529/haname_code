@@ -26,12 +26,12 @@ $breakpoints: (
 
 @mixin m-inner() {
     width: 90%;
-    max-width: 900px;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 
     @include m-query(desktop) {
-        padding-left: (110em/14
+        padding-left: (110em/16
         );
 }
 }
@@ -73,9 +73,9 @@ $color-subGreen: #D3D930;
 //  ######   ##  ##    #####   #######
 
 body {
-    background-color: $color-background;
+    background: url(../images/background.jpg) repeat $color-background;
     color: $color-text;
-    font-size: f-rem(14);
+    font-size: f-rem(16);
     font-family: "tk-takumi-shokei-font", sans-serif;
     font-weight: 200; //boldは400
     font-style: normal;
@@ -119,13 +119,13 @@ textarea:focus {
     z-index: 999;
     width: 100%;
     min-width: 240px;
-    background-color: $color-background;
+    background: url(../images/background.jpg) repeat $color-background;
     border-radius: 0 0 10px 10px;
     transition: .5s ease-out top,
         .5s ease-out opacity;
 
     &.disapper {
-        top: -(100em/14);
+        top: -(100em/16);
         opacity: 0;
     }
 
@@ -133,7 +133,7 @@ textarea:focus {
         flex-direction: column;
         top: 0;
         left: 0;
-        width: (110em/14);
+        width: (110em/16);
         min-width: auto;
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
@@ -145,16 +145,16 @@ textarea:focus {
 
         &.disapper {
             top: 0;
-            left: -(100em/14);
+            left: -(100em/16);
             opacity: 0;
         }
     }
 
     &__logo {
-        width: (40em/14);
+        width: (40em/16);
 
         @include m-query(desktop) {
-            width: (80em/14);
+            width: (80em/16);
         }
     }
 
@@ -225,17 +225,17 @@ textarea:focus {
     }
 
     &__shortcutImg {
-        height: (15em/14);
+        height: (15em/16);
 
         img {
-            width: (15em/14);
+            width: (15em/16);
         }
 
         &--insta {
-            height: (20em/14);
+            height: (20em/16);
 
             img {
-                width: (20em/14);
+                width: (20em/16);
             }
         }
 
@@ -244,7 +244,7 @@ textarea:focus {
             text-align: center;
 
             img {
-                width: (40em/14);
+                width: (40em/16);
             }
         }
     }
@@ -350,7 +350,7 @@ textarea:focus {
     &__logo {
 
         img {
-            width: (160em/14);
+            width: (160em/16);
         }
     }
 
@@ -403,7 +403,7 @@ textarea:focus {
     }
 
     &__nav {
-        margin-bottom: (60em/14);
+        margin-bottom: (60em/16);
 
         @include m-query(desktop) {
             margin-bottom: 0;
@@ -418,17 +418,17 @@ textarea:focus {
 
     &__images {
         @include m-flex(flex-end, flex-start);
-        margin-bottom: (20em/14);
+        margin-bottom: (20em/16);
     }
 
     &__logo {
-        width: (80em/14);
+        width: (80em/16);
         margin-right: 50px;
     }
 
     &__insta {
-        width: (30em/14);
-        height: (30em/14);
+        width: (30em/16);
+        height: (30em/16);
     }
 
     &__infoText {
@@ -563,7 +563,7 @@ textarea:focus {
         left: 50%;
         transform: translateX(-50%); //中央寄せ（調整）
         width: 100%;
-        max-width: (350em/14);
+        max-width: (350em/16);
 
         @include m-query(desktop) {
             position: static;
@@ -583,7 +583,7 @@ textarea:focus {
         height: (350em/36);
         margin: 0 auto 90px;
         padding: 0 (17em/36);
-        background-color: $color-background;
+        background: url(../images/background.jpg) repeat $color-background;
         text-align: center;
 
         @include m-query(desktop) {
@@ -602,7 +602,8 @@ textarea:focus {
     }
 
     &__text {
-        margin-bottom: 90px;
+        margin-bottom: 60px;
+        text-align: justify;
     }
 
     &__link {
@@ -894,8 +895,9 @@ textarea:focus {
         }
 
         img {
-            aspect-ratio: (3/4);
-            object-fit: cover;
+            @include m-clip();
+            // aspect-ratio: (3/4);
+            // object-fit: cover;
         }
     }
 }
@@ -944,7 +946,7 @@ textarea:focus {
     }
 
     &__attention {
-        font-size: f-rem(12);
+        font-size: f-rem(14);
         line-height: 1.5;
     }
 
@@ -1042,16 +1044,16 @@ textarea:focus {
     }
 
     &__beforePage {
-        width: (30em/14);
-        height: (30em/14);
-        margin-right: (30em/14);
+        width: (30em/16);
+        height: (30em/16);
+        margin-right: (30em/16);
         display: none; //1ページ目なら表示しないにしたい
     }
 
     &__page {
-        width: (30em/14);
-        height: (30em/14);
-        margin-right: (30em/14);
+        width: (30em/16);
+        height: (30em/16);
+        margin-right: (30em/16);
 
         &--current {
             background: url(../images/flower.svg) no-repeat center center;
@@ -1060,9 +1062,9 @@ textarea:focus {
     }
 
     &__nextPage {
-        width: (30em/14);
-        height: (30em/14);
-        margin-right: (30em/14);
+        width: (30em/16);
+        height: (30em/16);
+        margin-right: (30em/16);
     }
 }
 
@@ -1241,7 +1243,7 @@ textarea:focus {
 //      ##    ####        ##
 
 .notfound {
-    margin-top: (300em/14);
+    margin-top: (300em/16);
 
     &__inner {
         @include m-inner();
