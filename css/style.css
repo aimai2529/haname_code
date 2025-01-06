@@ -1257,7 +1257,13 @@ textarea:focus {
   }
 }
 .info__number {
+  margin: 1.25em 0 0.3125em;
   font-size: 2.25rem;
+  line-height: 1;
+}
+.info__attention {
+  margin-bottom: 0.9375em;
+  font-size: 0.875rem;
 }
 
 .notfound {

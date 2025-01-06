@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- 自動リンクを無効にする -->
     <title>花芽ーハナメー</title>
     <link rel="icon" href="favicon.ico">
     <!-- ファビコン -->
@@ -29,6 +31,11 @@
                 h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
         })(document);
     </script>
+    <script defer src="./JavaScript/height.js"></script>
+    <script defer src="./JavaScript/menu.js"></script>
+    <script defer nomodule src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.2/dist/ie-buster.min.js"></script>
+    <script defer nomodule>ieBuster.init()</script>
+    <!-- JS -->
 </head>
 
 <body>
@@ -70,7 +77,7 @@
 
     <header class="header">
         <nav class="header__fix fix">
-            <button class="fix__menu fix__menu--desktop">
+            <button aria-label="メニューを開く" class="fix__menu fix__menu--desktop">
                 <img src="./images/Line 3.png" alt="" class="fix__menuTop">
                 <img src="./images/Line 3.png" alt="" class="fix__menuCenter">
                 <img src="./images/Line 3.png" alt="" class="fix__menuBottom">
@@ -83,7 +90,7 @@
             <div class="fix__right">
                 <div class="fix__shortcut">
                     <div class="fix__shopInfo">
-                        <a href="./store.html" target="_blank" class="fix__shortcutItem">
+                        <a href="./store.html#time" class="fix__shortcutItem">
                             <p class="fix__shortcutText">
                                 営業時間
                             </p>
@@ -91,7 +98,7 @@
                                 <img src="./images/schedule_24dp_000000.png" alt="" width="40" height="40">
                             </div>
                         </a>
-                        <a href="./store.html" target="_blank" class="fix__shortcutItem">
+                        <a href="https://maps.app.goo.gl/S6FG7Y2nCeDTkTKG7" target="_blank" class="fix__shortcutItem">
                             <p class="fix__shortcutText">
                                 アクセス
                             </p>
@@ -133,7 +140,12 @@
                     ご予約やお問い合わせはお電話にて受け付けております。
                 </p>
                 <p class="info__number">
-                    052-734-8700
+                    <a href="tel:+81-52-734-8700">
+                        052-734-8700
+                    </a>
+                </p>
+                <p class="info__attention">
+                    ※タップで電話をかけることができます。
                 </p>
                 <p class="info__time">
                     営業時間：10:00〜17:00（売り切れ次第閉店）<br>
@@ -205,11 +217,6 @@
             </small>
         </div>
     </footer>
-
-    <script src="./JavaScript/height.js"></script>
-    <script src="./JavaScript/menu.js"></script>
-    <script nomodule src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.2/dist/ie-buster.min.js"></script>
-    <script nomodule>ieBuster.init()</script>
 
 
 </body>

@@ -40,7 +40,7 @@ $breakpoints: (
     font-size: f-rem($s );
     font-family: "shippori-mincho",
         sans-serif;
-    font-weight: 500; //regularは400,boldは700
+    font-weight: 500;
     font-style: normal;
     line-height: 1;
 }
@@ -1239,7 +1239,14 @@ textarea:focus {
     }
 
     &__number {
+        margin: (20em/16) 0 (5em/16);
         font-size: f-rem(36);
+        line-height: 1;
+    }
+
+    &__attention {
+        margin-bottom: (15em/16);
+        font-size: f-rem(14);
     }
 }
 
