@@ -31,7 +31,7 @@ $breakpoints: (
     margin-right: auto;
 
     @include m-query(desktop) {
-        padding-left: (110em/16
+        padding-left: (120em/16
         );
 }
 }
@@ -133,7 +133,7 @@ textarea:focus {
         flex-direction: column;
         top: 0;
         left: 0;
-        width: (110em/16);
+        width: (120em/16);
         min-width: auto;
         height: 100vh;
         height: calc(var(--vh, 1vh) * 100);
@@ -293,6 +293,10 @@ textarea:focus {
     text-align: right;
     transform: translateY(-100%);
     transition: .8s;
+
+    &__item {
+        text-decoration: underline $color-text;
+    }
 
     &.open {
         transform: translateY(0);
@@ -489,7 +493,7 @@ textarea:focus {
     }
 
     &__image {
-        max-width: 300px;
+        max-width: 350px;
         margin: 0 auto 60px;
 
         img {
@@ -497,14 +501,14 @@ textarea:focus {
         }
 
         @include m-query(desktop) {
-            width: (225/750)*100%;
+            width: (300/750)*100%;
             margin: 0;
         }
     }
 
     &__content {
         @include m-query(desktop) {
-            width: (450/750)*100%;
+            width: (375/750)*100%;
         }
     }
 
@@ -862,7 +866,7 @@ textarea:focus {
 
     &__content {
         @include m-query(desktop) {
-            width: (375/900)*100%;
+            width: (450/900)*100%;
         }
     }
 
@@ -890,8 +894,12 @@ textarea:focus {
     }
 
     &__image {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+
         @include m-query(desktop) {
-            width: (450/900)*100%;
+            width: (375/900)*100%;
         }
 
         img {
@@ -1210,6 +1218,7 @@ textarea:focus {
     &__cardImg {
         @include m-query(desktop) {
             width: 45%;
+            border: $color-text solid .5px;
         }
     }
 }
