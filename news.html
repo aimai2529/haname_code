@@ -31,6 +31,7 @@
     </script>
     <script defer src="./JavaScript/height.js"></script>
     <script defer src="./JavaScript/menu.js"></script>
+    <script defer src="./JavaScript/insta_news.js"></script>
     <script defer nomodule src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.2/dist/ie-buster.min.js"></script>
     <script defer nomodule>ieBuster.init()</script>
     <!-- JS -->
@@ -196,7 +197,11 @@
     <main class="main">
         <section class="article">
             <div class="article__inner">
-                <a href="./news_article.html">
+                <p class="article__attention">
+                    記事をクリックするとインスタグラムの投稿にリンクします。
+                </p>
+                <div class="article__allpost"></div>
+                <!-- <a href="./news_article.html">
                     <article class="article__item">
                         <div class="article__image">
                             <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
@@ -213,104 +218,10 @@
                             </p>
                         </div>
                     </article>
-                </a>
+                </a> -->
 
-                <a href="./news_article.html">
-                    <article class="article__item">
-                        <div class="article__image">
-                            <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
-                        </div>
-                        <div class="article__content">
-                            <h2 class="article__title">
-                                記事のタイトル
-                            </h2>
-                            <p class="article__date">
-                                xxxx/xx/xx
-                            </p>
-                            <p class="article__text">
-                                ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります......
-                            </p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="./news_article.html">
-                    <article class="article__item">
-                        <div class="article__image">
-                            <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
-                        </div>
-                        <div class="article__content">
-                            <h2 class="article__title">
-                                記事のタイトル
-                            </h2>
-                            <p class="article__date">
-                                xxxx/xx/xx
-                            </p>
-                            <p class="article__text">
-                                ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります......
-                            </p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="./news_article.html">
-                    <article class="article__item">
-                        <div class="article__image">
-                            <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
-                        </div>
-                        <div class="article__content">
-                            <h2 class="article__title">
-                                記事のタイトル
-                            </h2>
-                            <p class="article__date">
-                                xxxx/xx/xx
-                            </p>
-                            <p class="article__text">
-                                ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります......
-                            </p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="./news_article.html">
-                    <article class="article__item">
-                        <div class="article__image">
-                            <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
-                        </div>
-                        <div class="article__content">
-                            <h2 class="article__title">
-                                記事のタイトル
-                            </h2>
-                            <p class="article__date">
-                                xxxx/xx/xx
-                            </p>
-                            <p class="article__text">
-                                ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります......
-                            </p>
-                        </div>
-                    </article>
-                </a>
-
-                <a href="./news_article.html">
-                    <article class="article__item">
-                        <div class="article__image">
-                            <img src="./images/ohagi.jpg" alt="" width="1600" height="1068" loading="lazy">
-                        </div>
-                        <div class="article__content">
-                            <h2 class="article__title">
-                                記事のタイトル
-                            </h2>
-                            <p class="article__date">
-                                xxxx/xx/xx
-                            </p>
-                            <p class="article__text">
-                                ここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入りますここにテキストが入ります......
-                            </p>
-                        </div>
-                    </article>
-                </a>
                 <div class="article__pagenation">
-                    <button class="article__beforePage">
+                    <!-- <button class="article__beforePage">
                         &lt;
                     </button>
                     <button class="article__page article__page--current">
@@ -321,8 +232,11 @@
                     </button>
                     <button class="article__nextPage">
                         &gt;
-                    </button>
+                    </button> -->
                 </div>
+                <p class="article__note">
+                    さらに過去の投稿は<a href="https://www.instagram.com/wagashi_haname/">花芽公式インスタグラム</a>からご覧ください。
+                </p>
             </div>
         </section>
     </main>

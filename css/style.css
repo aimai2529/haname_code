@@ -24,11 +24,11 @@ textarea:focus {
 }
 
 ::-moz-selection {
-  background-color: #D3D930;
+  background-color: rgba(242, 198, 53, 0.7);
 }
 
 ::selection {
-  background-color: #D3D930;
+  background-color: rgba(242, 198, 53, 0.7);
 }
 
 .fix {
@@ -50,7 +50,7 @@ textarea:focus {
   top: -6.25em;
   opacity: 0;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix {
     flex-direction: column;
     top: 0;
@@ -73,7 +73,7 @@ textarea:focus {
 .fix__logo {
   width: 2.5em;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__logo {
     width: 5em;
   }
@@ -84,7 +84,7 @@ textarea:focus {
   justify-content: space-between;
   align-items: center;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__right {
     display: block;
     margin-bottom: -20px;
@@ -97,7 +97,7 @@ textarea:focus {
   align-items: flex-end;
   margin-right: 20px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__shortcut {
     display: block;
     margin-right: 0;
@@ -106,7 +106,7 @@ textarea:focus {
 .fix__shopInfo {
   margin-right: 15px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__shopInfo {
     margin-right: 0;
   }
@@ -122,7 +122,7 @@ textarea:focus {
 .fix__shortcutItem:last-child {
   margin-bottom: 0;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__shortcutItem {
     display: block;
     margin-bottom: 20px;
@@ -139,7 +139,7 @@ textarea:focus {
 .fix__shortcutText--insta {
   display: none;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__shortcutText {
     padding-left: 0;
     padding-bottom: 10px;
@@ -161,7 +161,7 @@ textarea:focus {
 .fix__shortcutImg--insta img {
   width: 1.25em;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__shortcutImg {
     height: auto;
     text-align: center;
@@ -187,7 +187,7 @@ textarea:focus {
 .fix__menu--desktop {
   display: none;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .fix__menu {
     display: none;
     width: 80px;
@@ -214,8 +214,28 @@ textarea:focus {
   transition: 0.8s;
 }
 .inside__item {
-  -webkit-text-decoration: underline #281E00;
-          text-decoration: underline #281E00;
+  position: relative;
+  transition: 0.3s;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  line-height: 1;
+  margin-bottom: 1.6666666667em;
+  padding-bottom: 0.5555555556em;
+}
+.inside__item::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: "";
+  width: 100%;
+  height: 1.3px;
+  background-color: #281E00;
+  transition: 0.3s;
+  transform: translateX(-50%);
+}
+.inside__item:hover::after {
+  width: 10%;
 }
 .inside.open {
   transform: translateY(0);
@@ -223,7 +243,7 @@ textarea:focus {
 .inside.resize {
   transition: none;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .inside {
     width: 40%;
     padding: 30px 10px 30px 8.3333333333em;
@@ -243,14 +263,14 @@ textarea:focus {
   min-height: 800px;
 }
 .header__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
+  position: relative;
   padding-top: 300px;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .header__inner {
     padding-left: 7.5em;
   }
@@ -260,7 +280,7 @@ textarea:focus {
   padding-left: 0;
   padding-top: calc(var(--vh, 1vh) * 15);
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .header__inner--noside {
     display: flex;
     flex-wrap: wrap;
@@ -269,10 +289,32 @@ textarea:focus {
     padding-top: 120px;
   }
 }
+.header__background {
+  position: absolute;
+  z-index: -999;
+}
+.header__background img {
+  -webkit-clip-path: url(#clip);
+          clip-path: url(#clip);
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.header__background--left {
+  left: 0;
+  top: 70px;
+  width: min(250px, 70%);
+}
+.header__background--right {
+  right: 0;
+  bottom: 0;
+  width: min(500px, 100%);
+}
 .header__nav {
   display: none;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .header__nav {
     display: block;
     padding-top: calc(var(--vh, 1vh) * 40);
@@ -292,8 +334,9 @@ textarea:focus {
   font-size: 2rem;
   line-height: 2;
   text-align: right;
+  text-shadow: 0px 0px 20px rgb(255, 250, 234);
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .header__motto {
     margin-bottom: 0;
     font-size: 2.25rem;
@@ -315,18 +358,17 @@ textarea:focus {
   padding: 100px 0;
   margin-top: 120px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .footer {
     margin-top: 300px;
   }
 }
 .footer__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .footer__inner {
     padding-left: 7.5em;
   }
@@ -335,7 +377,7 @@ textarea:focus {
   padding-bottom: 60px;
   border-bottom: #281E00 solid 1px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .footer__content {
     display: flex;
     flex-wrap: wrap;
@@ -346,7 +388,7 @@ textarea:focus {
 .footer__nav {
   margin-bottom: 3.75em;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .footer__nav {
     margin-bottom: 0;
   }
@@ -384,17 +426,16 @@ textarea:focus {
 }
 
 .block__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__inner {
     padding-left: 7.5em;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__inner {
     display: flex;
     flex-wrap: wrap;
@@ -412,7 +453,7 @@ textarea:focus {
   white-space: nowrap;
   margin: 0 auto 90px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__title {
     position: -webkit-sticky;
     position: sticky;
@@ -421,7 +462,7 @@ textarea:focus {
     margin: 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__list {
     width: 83.3333333333%;
   }
@@ -432,7 +473,7 @@ textarea:focus {
 .block__item:last-child {
   margin-bottom: 0;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__item {
     display: flex;
     flex-wrap: wrap;
@@ -452,13 +493,13 @@ textarea:focus {
      object-fit: cover;
   width: 100%;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__image {
     width: 40%;
     margin: 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .block__content {
     width: 50%;
   }
@@ -488,18 +529,17 @@ textarea:focus {
   margin-bottom: 300px;
 }
 .unit__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
   position: relative;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__inner {
     padding-left: 7.5em;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__inner {
     display: flex;
     flex-wrap: wrap;
@@ -507,7 +547,7 @@ textarea:focus {
     align-items: center;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__inner--rev {
     flex-direction: row-reverse;
   }
@@ -520,7 +560,7 @@ textarea:focus {
   width: 100%;
   max-width: 21.875em;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__image {
     position: static;
     transform: none;
@@ -549,7 +589,7 @@ textarea:focus {
   background: url(../images/background.jpg) repeat #FFFAEA;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__title {
     height: auto;
     margin: 0;
@@ -558,7 +598,7 @@ textarea:focus {
     text-align: left;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__content {
     width: 38.8888888889%;
   }
@@ -578,7 +618,7 @@ textarea:focus {
   -webkit-text-decoration: underline #281E00;
           text-decoration: underline #281E00;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .unit__link {
     margin-left: 0;
   }
@@ -588,12 +628,11 @@ textarea:focus {
   margin-bottom: 300px;
 }
 .news__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .news__inner {
     padding-left: 7.5em;
   }
@@ -604,10 +643,14 @@ textarea:focus {
   font-weight: 500;
   font-style: normal;
   line-height: 1;
-  margin-bottom: 90px;
+  margin-bottom: 30px;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+.news__attention {
+  text-align: center;
+  margin-bottom: 60px;
+}
+@media (800px<=width) {
   .news__list {
     display: flex;
     flex-wrap: wrap;
@@ -618,7 +661,7 @@ textarea:focus {
 .news__item {
   margin-bottom: 90px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .news__item {
     width: 27.7777777778%;
     margin-bottom: 0;
@@ -655,7 +698,7 @@ textarea:focus {
   -webkit-text-decoration: underline solid;
           text-decoration: underline solid;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .news__link {
     margin-right: auto;
     margin-top: 60px;
@@ -666,12 +709,11 @@ textarea:focus {
   margin-bottom: 300px;
 }
 .calendar__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .calendar__inner {
     padding-left: 7.5em;
   }
@@ -690,12 +732,11 @@ textarea:focus {
   margin-bottom: 300px;
 }
 .map__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .map__inner {
     padding-left: 7.5em;
   }
@@ -709,7 +750,7 @@ textarea:focus {
   margin-bottom: 60px;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .map__list {
     display: flex;
     flex-wrap: wrap;
@@ -721,15 +762,16 @@ textarea:focus {
   margin: 0 auto 60px;
   max-width: 460px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .map__image {
-    width: 41.6666666667%;
+    width: 400px;
     margin: 0;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .map__content {
-    width: 41.6666666667%;
+    flex: 1;
+    margin-left: 50px;
   }
 }
 .map__text {
@@ -748,7 +790,7 @@ textarea:focus {
   -webkit-text-decoration: underline #281E00;
           text-decoration: underline #281E00;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .map__link {
     margin-left: 0;
   }
@@ -758,12 +800,11 @@ textarea:focus {
   text-align: center;
 }
 .contact__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .contact__inner {
     padding-left: 7.5em;
   }
@@ -787,12 +828,11 @@ textarea:focus {
   margin-bottom: 300px;
 }
 .detailed__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__inner {
     padding-left: 7.5em;
   }
@@ -810,7 +850,7 @@ textarea:focus {
 .detailed__text {
   margin-bottom: 90px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__imgList {
     display: flex;
     flex-wrap: wrap;
@@ -821,7 +861,7 @@ textarea:focus {
 .detailed__imgItem {
   margin-bottom: 30px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__imgItem {
     width: 33.3333333333%;
     margin-bottom: 0;
@@ -830,7 +870,7 @@ textarea:focus {
 .detailed__imgItem:nth-child(1) {
   margin-left: 6.6666666667%;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__imgItem:nth-child(1) {
     margin-left: 0;
     margin-top: 30px;
@@ -839,7 +879,7 @@ textarea:focus {
 .detailed__imgItem:nth-child(2) {
   text-align: right;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__imgItem:nth-child(2) {
     text-align: left;
     margin-top: 180px;
@@ -857,7 +897,7 @@ textarea:focus {
   width: 100%;
   width: 66.6666666667%;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .detailed__imgItem img {
     width: 100%;
   }
@@ -868,17 +908,16 @@ textarea:focus {
 }
 
 .introduce__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .introduce__inner {
     padding-left: 7.5em;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .introduce__inner {
     display: flex;
     flex-wrap: wrap;
@@ -886,7 +925,7 @@ textarea:focus {
     align-items: center;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .introduce__content {
     width: 50%;
   }
@@ -917,7 +956,7 @@ textarea:focus {
 .introduce__text {
   margin-bottom: 90px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .introduce__text {
     margin-bottom: 0;
   }
@@ -927,7 +966,7 @@ textarea:focus {
   margin-right: auto;
   max-width: 400px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .introduce__image {
     width: 41.6666666667%;
   }
@@ -946,12 +985,11 @@ textarea:focus {
   line-height: 1;
 }
 .dayItems__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .dayItems__inner {
     padding-left: 7.5em;
   }
@@ -964,7 +1002,7 @@ textarea:focus {
   font-style: normal;
   line-height: 1;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .dayItems__list {
     margin-left: 16.6666666667%;
   }
@@ -978,7 +1016,7 @@ textarea:focus {
   margin-bottom: 30px;
   font-size: 1.5rem;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .dayItems__column {
     width: 450px;
   }
@@ -1014,22 +1052,25 @@ textarea:focus {
 }
 
 .article__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .article__inner {
     padding-left: 7.5em;
   }
+}
+.article__attention {
+  margin-bottom: 60px;
+  line-height: 1.5;
 }
 .article__item {
   margin-bottom: 60px;
   padding-bottom: 30px;
   border-bottom: #281E00 1px dotted;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .article__item {
     display: flex;
     flex-wrap: wrap;
@@ -1041,7 +1082,7 @@ textarea:focus {
   margin: 0 auto 75px;
   max-width: 250px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .article__image {
     margin: 0;
     width: 16.6666666667%;
@@ -1055,7 +1096,7 @@ textarea:focus {
      object-fit: cover;
   width: 100%;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .article__content {
     width: 75%;
   }
@@ -1072,44 +1113,21 @@ textarea:focus {
 .article__text {
   line-height: 2;
 }
-.article__pagenation {
-  text-align: center;
-  line-height: 1;
-}
-.article__pagenation :last-child {
-  margin-right: 0;
-}
-.article__beforePage {
-  width: 1.875em;
-  height: 1.875em;
-  margin-right: 1.875em;
-  display: none;
-}
-.article__page {
-  width: 1.875em;
-  height: 1.875em;
-  margin-right: 1.875em;
-}
-.article__page--current {
-  background: url(../images/flower.svg) no-repeat center center;
-  color: #FFFAEA;
-}
-.article__nextPage {
-  width: 1.875em;
-  height: 1.875em;
-  margin-right: 1.875em;
+.article__note a {
+  color: #E83342;
+  -webkit-text-decoration: underline #E83342;
+          text-decoration: underline #E83342;
 }
 
 .single {
   margin-top: 200px;
 }
 .single__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .single__inner {
     padding-left: 7.5em;
   }
@@ -1135,7 +1153,7 @@ textarea:focus {
   text-align: center;
   margin-bottom: 60px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .single__images {
     display: flex;
     flex-wrap: wrap;
@@ -1153,7 +1171,7 @@ textarea:focus {
   width: 100%;
   max-width: 400px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .single__images img {
     width: 30%;
   }
@@ -1168,18 +1186,17 @@ textarea:focus {
   font-size: 1rem;
 }
 
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop {
     margin-bottom: 300px;
   }
 }
 .shop__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop__inner {
     padding-left: 7.5em;
   }
@@ -1209,12 +1226,12 @@ textarea:focus {
 .shop__card:last-child {
   margin-bottom: 0;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop__card:nth-child(odd) {
     flex-direction: row-reverse;
   }
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop__card {
     display: flex;
     flex-wrap: wrap;
@@ -1225,7 +1242,7 @@ textarea:focus {
 .shop__cardContent {
   margin-bottom: 60px;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop__cardContent {
     width: 45%;
     margin-bottom: 0;
@@ -1235,7 +1252,7 @@ textarea:focus {
   margin-bottom: 30px;
   font-size: 1.5rem;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .shop__cardImg {
     width: 45%;
     border: #281E00 solid 0.5px;
@@ -1246,12 +1263,11 @@ textarea:focus {
   text-align: center;
 }
 .info__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .info__inner {
     padding-left: 7.5em;
   }
@@ -1270,13 +1286,12 @@ textarea:focus {
   margin-top: 18.75em;
 }
 .notfound__inner {
-  width: 90%;
-  max-width: 1000px;
+  width: min(90%, 1000px);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-@media screen and (min-width: 800px) {
+@media (800px<=width) {
   .notfound__inner {
     padding-left: 7.5em;
   }

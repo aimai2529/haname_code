@@ -7,6 +7,14 @@ for (let i = 0; i < 2; i++) {
     })
 }
 
+if (this.location.pathname === '/index.html') {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY < window.innerHeight && inside.classList.contains('open')) {
+            inside.classList.remove('open');
+        }
+    })
+}
+
 window.addEventListener('resize', () => {
     inside.classList.add('resize');
     setTimeout(() => {
