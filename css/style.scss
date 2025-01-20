@@ -52,7 +52,7 @@ margin-right: auto;
     width: 100%;
 }
 
-@mixin m-lineAnim() {
+@mixin m-lineAnim($c: $color-text, $p: 1.3px) {
     position: relative;
     transition: .3s;
     width: fit-content;
@@ -60,17 +60,17 @@ margin-right: auto;
     &::after {
         position: absolute;
         bottom: 0;
-        left: 50%;
+        left: 0;
         content: '';
         width: 100%;
-        height: 1.3px;
-        background-color: $color-text;
+        height: $p;
+        background-color: $c;
         transition: .3s;
-        transform: translateX(-50%);
+        // transform: translateX(-50%);
     }
 
     &:hover::after {
-        width: 10%;
+        width: 1em;
     }
 }
 
@@ -323,6 +323,7 @@ textarea:focus {
         line-height: 1;
         margin-bottom: (30em/18);
         padding-bottom: (10em/18);
+        white-space: nowrap;
     }
 
     &.open {
@@ -351,6 +352,8 @@ textarea:focus {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     min-height: 800px;
+    background: no-repeat center top/cover;
+    background-image: url(../images/eatin_background.png);
 
     &__inner {
         @include m-inner();
@@ -369,27 +372,6 @@ textarea:focus {
         }
     }
 
-    &__background {
-        position: absolute;
-        z-index: -999;
-
-        img {
-            @include m-clip();
-        }
-
-        &--left {
-            left: 0;
-            top: 70px;
-            width: min(250px, 70%);
-        }
-
-        &--right {
-            right: 0;
-            bottom: 0;
-            width: min(500px, 100%);
-        }
-    }
-
     &__nav {
         display: none;
 
@@ -398,6 +380,14 @@ textarea:focus {
             padding-top: calc(var(--vh, 1vh) * 40);
             text-align: left;
         }
+    }
+
+    &__navItem {
+        @include m-lineAnim($color-main, 2px);
+        line-height: 1;
+        margin-bottom: (30em/16);
+        padding-bottom: (5em/16);
+        white-space: nowrap;
     }
 
     &__logo {
@@ -432,6 +422,7 @@ textarea:focus {
         margin-left: auto;
         margin-right: auto;
         @include m-mainTitle();
+        text-shadow: 0px 0px 20px rgba(255, 250, 234, 1);
     }
 }
 
@@ -465,9 +456,12 @@ textarea:focus {
     }
 
     &__navItem {
+        @include m-lineAnim();
         font-size: f-rem(18);
         line-height: 1;
         margin-bottom: (20em/18);
+        padding-bottom: (7em/18);
+        white-space: nowrap;
     }
 
     &__images {
