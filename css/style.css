@@ -262,7 +262,8 @@ textarea:focus {
   height: calc(var(--vh, 1vh) * 100);
   min-height: 800px;
   background: no-repeat center top/cover;
-  background-image: url(../images/eatin_background.png);
+  margin-bottom: 120px;
+  transition: background-image 2S ease;
 }
 .header__inner {
   width: min(90%, 1000px);
