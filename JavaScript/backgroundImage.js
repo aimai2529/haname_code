@@ -9,22 +9,21 @@ const images = [
 ],
     header = document.querySelector('.header');
 
-if (this.location.pathname === '/index.html') {
-    let count = 0,
-        second = 7000;
-    const slide = () => {
+switch (this.location.pathname) {
+    case '/':
+        let count = Math.floor(Math.random() * images.length),
+            second = 7000;
         header.style.backgroundImage = `url(${images[count]})`;
-        count++;
-        if (count === images.length) {
-            count = 0;
+        const slide = () => {
+            count++;
+            if (count === images.length) {
+                count = 0;
+            }
+            header.style.backgroundImage = `url(${images[count]})`;
+            setTimeout(slide, second);
         }
         setTimeout(slide, second);
-    }
-    setTimeout(slide, second);
-
-}
-
-switch (this.location.pathname) {
+        break
     case '/about.html':
         header.style.backgroundImage = `url(${images[1]})`;
         break;
