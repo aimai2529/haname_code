@@ -5,7 +5,7 @@ body {
   font-family: "tk-takumi-shokei-font", sans-serif;
   font-weight: 200;
   font-style: normal;
-  line-height: 3;
+  line-height: 2.5;
   letter-spacing: 0.15em;
 }
 
@@ -178,12 +178,6 @@ textarea:focus {
   flex-direction: column;
   width: 40px;
 }
-.fix__menu img {
-  padding-bottom: 16px;
-}
-.fix__menu img:last-child {
-  padding-bottom: 0;
-}
 .fix__menu--desktop {
   display: none;
 }
@@ -191,9 +185,6 @@ textarea:focus {
   .fix__menu {
     display: none;
     width: 80px;
-  }
-  .fix__menu img {
-    padding-bottom: 30px;
   }
   .fix__menu--desktop {
     display: flex;
@@ -206,8 +197,8 @@ textarea:focus {
   left: 0;
   z-index: 99;
   width: 100%;
-  padding: 5.5555555556em 10px 1.6666666667em;
-  background-color: #F2C635;
+  padding: 6.1111111111em 10px 1.6666666667em;
+  background: url(../images/background-yellow.jpg) repeat #F2C635;
   font-size: 1.125rem;
   text-align: right;
   transform: translateY(-100%);
@@ -235,6 +226,9 @@ textarea:focus {
   transition: 0.3s;
 }
 .inside__item:hover::after {
+  width: 1em;
+}
+.inside__item--active::after {
   width: 1em;
 }
 .inside.open {
@@ -422,6 +416,9 @@ textarea:focus {
   transition: 0.3s;
 }
 .footer__navItem:hover::after {
+  width: 1em;
+}
+.footer__navItem--active::after {
   width: 1em;
 }
 .footer__images {

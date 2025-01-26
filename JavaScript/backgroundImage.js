@@ -1,16 +1,18 @@
 const images = [
-    "../images/background/eatin_background.png",
-    "../images/background/inside_background.png",
-    "../images/background/set_background.png",
-    "../images/background/shopcard_background.png",
-    "../images/background/tempo_background.png",
-    "../images/background/yaki_background.png",
-    "../images/background/yukiusa_background.png",
+    "./images/background/eatin_background.png",
+    "./images/background/inside_background.png",
+    "./images/background/set_background.png",
+    "./images/background/shopcard_background.png",
+    "./images/background/tempo_background.png",
+    "./images/background/yaki_background.png",
+    "./images/background/yukiusa_background.png",
 ],
     header = document.querySelector('.header');
 
+console.log(this.location.pathname);
+
 switch (this.location.pathname) {
-    case '/':
+    case '/haname/index.html':
         let count = Math.floor(Math.random() * images.length),
             second = 7000;
         header.style.backgroundImage = `url(${images[count]})`;
@@ -24,19 +26,19 @@ switch (this.location.pathname) {
         }
         setTimeout(slide, second);
         break
-    case '/about.html':
+    case '/haname/about.html':
         header.style.backgroundImage = `url(${images[1]})`;
         break;
-    case '/contact.html':
+    case '/haname/contact.html':
         header.style.backgroundImage = `url(${images[3]})`;
         break;
-    case '/news.html':
+    case '/haname/news.html':
         header.style.backgroundImage = `url(${images[0]})`;
         break;
-    case '/product.html':
+    case '/haname/product.html':
         header.style.backgroundImage = `url(${images[5]})`;
         break;
-    case '/store.html':
+    case '/haname/store.html':
         header.style.backgroundImage = `url(${images[4]})`;
         break;
     default:
