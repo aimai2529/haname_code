@@ -4,7 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>花芽ーハナメー</title>
+    <meta name="robots" content="noindex" />
+    <!-- 検索に出ないようにする -->
+    <meta property="og:url" content="https://aimai-fuji.pya.jp/haname/news.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="花芽_最近のお知らせ" />
+    <meta property="og:description" content="和菓子屋「花芽」の最近のインスタグラム投稿一覧です。季節の和菓子のお知らせ、イベント情報はここからご確認ください。" />
+    <meta property="og:site_name" content="花芽_はなめ-名古屋の和菓子屋" />
+    <meta property="og:image" content="https://aimai-fuji.pya.jp/haname/images/tempo_ogp.jpg" />
+    <!-- OGP https://www.atoj.co.jp/atoj-info/detail/62 -->
+    <title>花芽ーはなめー</title>
     <link rel="icon" href="favicon.ico">
     <!-- ファビコン -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
@@ -141,7 +150,7 @@
     <header class="header">
         <nav class="header__fix fix">
             <button aria-label="メニューを開く" class="fix__menu fix__menu--desktop">
-                <img src="./images/menu_open.PNG" alt="">
+                <p class="fix__menuText">メニュー</p>
             </button>
             <a href="./index.html">
                 <div class="fix__logo">
@@ -178,10 +187,7 @@
                         </div>
                     </a>
                 </div>
-                <button class="fix__menu">
-                    <img src="./images/Line 3.png" alt="" class="fix__menuTop">
-                    <img src="./images/Line 3.png" alt="" class="fix__menuCenter">
-                    <img src="./images/Line 3.png" alt="" class="fix__menuBottom">
+                <button aria-label="メニューを開く" class="fix__menu">
                 </button>
             </div>
         </nav>

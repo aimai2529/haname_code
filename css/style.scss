@@ -103,7 +103,7 @@ body {
     font-family: "tk-takumi-shokei-font", sans-serif;
     font-weight: 200; //boldは400
     font-style: normal;
-    line-height: 2.5;
+    line-height: 2.3;
     letter-spacing: 0.15em;
 }
 
@@ -274,9 +274,17 @@ textarea:focus {
     }
 
     &__menu {
-        @include m-flex();
-        flex-direction: column;
-        width: 40px;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        background: url(../images/menu_closed.PNG) no-repeat center center/contain;
+        animation: closeMenu .2s;
+        transform: translateY(-10%);
+
+        &.open {
+            background-image: url(../images/menu_open.PNG);
+            animation: openMenu .2s;
+        }
 
         &--desktop {
             display: none;
@@ -285,11 +293,67 @@ textarea:focus {
         @include m-query(desktop) {
             display: none;
             width: 80px;
+            height: 80px;
 
             &--desktop {
-                display: flex;
+                display: block;
             }
         }
+    }
+
+    &__menuText {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: f-rem(12);
+        text-align: center;
+        line-height: 1;
+    }
+}
+
+@keyframes openMenu {
+    0% {
+        background-image: url(../images/menu_closed.PNG);
+    }
+
+    25% {
+        background-image: url(../images/menu_open4.PNG);
+    }
+
+    50% {
+        background-image: url(../images/menu_open3.PNG);
+    }
+
+    75% {
+        background-image: url(../images/menu_open2.PNG);
+    }
+
+    100% {
+        background-image: url(../images/menu_open.PNG);
+    }
+}
+
+@keyframes closeMenu {
+    0% {
+        background-image: url(../images/menu_open.PNG);
+    }
+
+    25% {
+        background-image: url(../images/menu_open2.PNG);
+    }
+
+    50% {
+        background-image: url(../images/menu_open3.PNG);
+    }
+
+    75% {
+        background-image: url(../images/menu_open4.PNG);
+    }
+
+    100% {
+        background-image: url(../images/menu_closed.PNG);
     }
 }
 

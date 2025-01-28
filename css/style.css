@@ -5,7 +5,7 @@ body {
   font-family: "tk-takumi-shokei-font", sans-serif;
   font-weight: 200;
   font-style: normal;
-  line-height: 2.5;
+  line-height: 2.3;
   letter-spacing: 0.15em;
 }
 
@@ -171,12 +171,18 @@ textarea:focus {
   }
 }
 .fix__menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-direction: column;
-  width: 40px;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: url(../images/menu_closed.PNG) no-repeat center center/contain;
+  -webkit-animation: closeMenu 0.2s;
+          animation: closeMenu 0.2s;
+  transform: translateY(-10%);
+}
+.fix__menu.open {
+  background-image: url(../images/menu_open.PNG);
+  -webkit-animation: openMenu 0.2s;
+          animation: openMenu 0.2s;
 }
 .fix__menu--desktop {
   display: none;
@@ -185,12 +191,92 @@ textarea:focus {
   .fix__menu {
     display: none;
     width: 80px;
+    height: 80px;
   }
   .fix__menu--desktop {
-    display: flex;
+    display: block;
+  }
+}
+.fix__menuText {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1;
+}
+
+@-webkit-keyframes openMenu {
+  0% {
+    background-image: url(../images/menu_closed.PNG);
+  }
+  25% {
+    background-image: url(../images/menu_open4.PNG);
+  }
+  50% {
+    background-image: url(../images/menu_open3.PNG);
+  }
+  75% {
+    background-image: url(../images/menu_open2.PNG);
+  }
+  100% {
+    background-image: url(../images/menu_open.PNG);
   }
 }
 
+@keyframes openMenu {
+  0% {
+    background-image: url(../images/menu_closed.PNG);
+  }
+  25% {
+    background-image: url(../images/menu_open4.PNG);
+  }
+  50% {
+    background-image: url(../images/menu_open3.PNG);
+  }
+  75% {
+    background-image: url(../images/menu_open2.PNG);
+  }
+  100% {
+    background-image: url(../images/menu_open.PNG);
+  }
+}
+@-webkit-keyframes closeMenu {
+  0% {
+    background-image: url(../images/menu_open.PNG);
+  }
+  25% {
+    background-image: url(../images/menu_open2.PNG);
+  }
+  50% {
+    background-image: url(../images/menu_open3.PNG);
+  }
+  75% {
+    background-image: url(../images/menu_open4.PNG);
+  }
+  100% {
+    background-image: url(../images/menu_closed.PNG);
+  }
+}
+@keyframes closeMenu {
+  0% {
+    background-image: url(../images/menu_open.PNG);
+  }
+  25% {
+    background-image: url(../images/menu_open2.PNG);
+  }
+  50% {
+    background-image: url(../images/menu_open3.PNG);
+  }
+  75% {
+    background-image: url(../images/menu_open4.PNG);
+  }
+  100% {
+    background-image: url(../images/menu_closed.PNG);
+  }
+}
 .inside {
   position: fixed;
   top: 0;
