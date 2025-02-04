@@ -9,7 +9,7 @@ const images = [
 ],
     header = document.querySelector('.header');
 
-console.log(this.location.pathname);
+// console.log(this.location.pathname);
 
 switch (this.location.pathname) {
     case '/haname/index.html':

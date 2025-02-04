@@ -20,11 +20,11 @@ async function instaAPI() {
                     }
 
                     const eachItemCaption = eachItem.caption;
-                    console.log(eachItemCaption, eachItem);
+                    // console.log(eachItemCaption, eachItem);
                     const captions = eachItem.caption.slice(0, 150);
                     const captionTxt = `${captions}……`;
 
-                    document.querySelector('.article__allpost').insertAdjacentHTML('beforeend', `<a href="${eachItem.permalink}" target="_blank" rel="noopener"><article class="article__item"><div class="article__image"><img src="${eachItem.media}" alt="" width="1600" height="1068" loading="lazy"></div><div class="article__content"><p class="article__text">${captionTxt}</p></div></article></a>`);
+                    document.querySelector('.article__allpost').insertAdjacentHTML('beforeend', `<a href="${eachItem.permalink}" target="_blank" rel="noopener" title="公式インスタグラムの投稿を見る"><article class="article__item"><div class="article__image"><img src="${eachItem.media}" alt="" width="1600" height="1068" loading="lazy"></div><div class="article__content"><p class="article__text">${captionTxt}</p></div></article></a>`);
                 }
             });
         });

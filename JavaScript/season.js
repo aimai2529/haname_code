@@ -9,7 +9,7 @@ const client = createClient({
     apiKey: 'Ckd54tBWoge86C6BFPrHzc3XRRfnHJZixDJ8',
 })
 client.get({ endpoint: 'products' }).then((res) => {
-    console.log(res.contents[0].image.url);
+    // console.log(res.contents[0].image.url);
     for (let i = 0; i < res.totalCount; i++) {
         list.insertAdjacentHTML('afterbegin', createArticle);
     }
@@ -20,7 +20,7 @@ client.get({ endpoint: 'products' }).then((res) => {
         seasonEatby = document.querySelectorAll('.season .block__eatBy'),
         seasonPeriod = document.querySelectorAll('.season .block__period');
     for (let i = 0; i < res.totalCount; i++) {
-        console.log(seasonImg[i]);
+        // console.log(seasonImg[i]);
         seasonImg[i].src = res.contents[i].image.url;
         seasonName[i].innerHTML = res.contents[i].name;
         seasonText[i].innerHTML = res.contents[i].text;

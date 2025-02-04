@@ -6,7 +6,7 @@ const client2 = createClient({
     apiKey: 'Ckd54tBWoge86C6BFPrHzc3XRRfnHJZixDJ8',
 })
 client2.get({ endpoint: 'dayitem' }).then((res) => {
-    console.log(res.contents[0].name);
+    // console.log(res.contents[0].name);
     for (let i = 0; i < res.totalCount; i++) {
         document.querySelector('.dayItems dl').insertAdjacentHTML('afterbegin', createList);
     }

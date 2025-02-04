@@ -20,12 +20,12 @@ async function instaAPI() {
                     }
 
                     const eachItemCaption = eachItem.caption;
-                    console.log(eachItemCaption, eachItem);
+                    // console.log(eachItemCaption, eachItem);
                     const captions = eachItem.caption.slice(0, 40);
                     const captionTxt = `${captions}……`;
 
                     // 追加した子要素<ul>に各アイテム<li>を生成
-                    document.querySelector('.news__list').insertAdjacentHTML('beforeend', `<article class="news__item"><a href="${eachItem.permalink}" target="_blank" rel="noopener"><div class="news__image"><img src="${eachItem.media}" alt="" width="1600" height="1068" loading="lazy"></div><div class="news__text"><p>${captionTxt}</p></a></article>`);
+                    document.querySelector('.news__list').insertAdjacentHTML('beforeend', `<article class="news__item"><a href="${eachItem.permalink}" target="_blank" rel="noopener" title="公式インスタグラムの投稿を見る"><div class="news__image"><img src="${eachItem.media}" alt="" width="1600" height="1068" loading="lazy"></div><div class="news__text"><p>${captionTxt}</p></a></article>`);
                 }
             });
         });

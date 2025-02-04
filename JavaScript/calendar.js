@@ -7,7 +7,7 @@ const client = createClient({
     apiKey: 'Ckd54tBWoge86C6BFPrHzc3XRRfnHJZixDJ8',
 })
 client.get({ endpoint: 'calendar' }).then((res) => {
-    console.log(res.contents[0].alt);
+    // console.log(res.contents[0].alt);
     calendarImg.src = res.contents[0].calendar.url;
     calendarImg.height = res.contents[0].calendar.height;
     calendarImg.widht = res.contents[0].calendar.width;
