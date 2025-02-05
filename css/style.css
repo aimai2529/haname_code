@@ -174,6 +174,7 @@ textarea:focus {
   position: relative;
   width: 60px;
   height: 60px;
+  cursor: pointer;
   background: url(../images/menu_closed.svg) no-repeat center center/contain;
   -webkit-animation: closeMenu 0.2s;
           animation: closeMenu 0.2s;
@@ -637,6 +638,44 @@ textarea:focus {
 }
 .block__notation :last-child {
   margin-right: 0;
+}
+
+#toTop {
+  position: fixed;
+  z-index: 999;
+  bottom: 10px;
+  right: 10px;
+  width: 5em;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transform: translateX(200px);
+  transition: 0.5s;
+}
+#toTop span {
+  display: block;
+}
+#toTop img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+#toTop.active {
+  display: block;
+  transform: translateX(0);
+}
+@media (800px<=width) {
+  #toTop {
+    bottom: 30px;
+    right: 30px;
+    width: 8em;
+    white-space: nowrap;
+  }
+  #toTop span {
+    display: inline;
+  }
 }
 
 .unit {

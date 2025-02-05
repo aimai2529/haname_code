@@ -41,6 +41,7 @@
     <script defer src="./JavaScript/height.js"></script>
     <script defer src="./JavaScript/backgroundImage.js"></script>
     <script defer src="./JavaScript/menu.js"></script>
+    <script defer src="./JavaScript/toTop.js"></script>
     <script defer nomodule src="https://cdn.jsdelivr.net/npm/ie-buster@2.0.2/dist/ie-buster.min.js"></script>
     <script defer nomodule>ieBuster.init()</script>
 
@@ -49,7 +50,7 @@
 <body>
     <nav class="inside">
         <ul class="inside__list">
-            <li class="inside__item inside__item--active">
+            <li class="inside__item">
                 <a href="./index.html">
                     トップページ
                 </a>
@@ -69,7 +70,7 @@
                     お知らせ
                 </a>
             </li>
-            <li class="inside__item">
+            <li class="inside__item inside__item--active">
                 <a href="store.html">
                     店舗案内
                 </a>
@@ -82,6 +83,12 @@
         </ul>
     </nav>
     <!-- ハンバーガーメニューの中身 -->
+
+    <button id="toTop">
+        <img src="./images/uguisu.svg" alt="" width="70" height="60">
+        <span>ページ</span><span>トップへ</span>
+    </button>
+    <!-- ページトップへ -->
 
     <header class="header">
         <nav class="header__fix fix">

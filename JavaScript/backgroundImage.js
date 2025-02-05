@@ -13,6 +13,8 @@ const images = [
 
 switch (this.location.pathname) {
     case '/haname/index.html':
+    case '/haname/':
+    case '/haname/index':
         let count = Math.floor(Math.random() * images.length),
             second = 7000;
         header.style.backgroundImage = `url(${images[count]})`;
@@ -27,18 +29,23 @@ switch (this.location.pathname) {
         setTimeout(slide, second);
         break
     case '/haname/about.html':
+    case '/haname/about':
         header.style.backgroundImage = `url(${images[1]})`;
         break;
     case '/haname/contact.html':
+    case '/haname/contact':
         header.style.backgroundImage = `url(${images[3]})`;
         break;
     case '/haname/news.html':
+    case '/haname/news':
         header.style.backgroundImage = `url(${images[0]})`;
         break;
     case '/haname/product.html':
+    case '/haname/product':
         header.style.backgroundImage = `url(${images[5]})`;
         break;
     case '/haname/store.html':
+    case '/haname/store':
         header.style.backgroundImage = `url(${images[4]})`;
         break;
     default:
