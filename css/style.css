@@ -573,7 +573,6 @@ textarea:focus {
     position: -webkit-sticky;
     position: sticky;
     top: 60px;
-    width: 8.3333333333%;
     margin: 0;
   }
 }

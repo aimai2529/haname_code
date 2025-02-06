@@ -590,7 +590,6 @@ textarea:focus {
         @include m-query(desktop) {
             position: sticky;
             top: 60px;
-            width: (75/900)*100%;
             margin: 0;
         }
     }
